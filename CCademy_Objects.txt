@@ -1,0 +1,114 @@
+
+OBJECTS:
+Introduction to JavaScript Objects
+By the end of this lesson, you'll have the knowledge and skills to produce your own JavaScript objects.
+
+Throughout this lesson, you will learn how to:
+
+Represent real-world objects in JavaScript
+Access object properties
+Access object methods
+Create object getter and setter methods
+These concepts will enable you to bundle related data and methods into one package that models the real world.
+
+Let's get started!
+
+let day = 'Monday';
+let alarm;
+
+let person = {
+  name: 'Ragav',
+  age:28,
+  weekendAlarm:'No alarms needed',
+  weekAlarm:'Alarm set to 7AM'
+};
+
+//console.log(person['name']);
+//console.log(person['age']);
+if(day === 'Saturday'|| day === 'Sunday' ){alarm = 'weekendAlarm';}
+else{alarm = 'weekAlarm';}
+console.log(person[alarm]);
+
+---------------------------------------------------------------
+let person = {
+  name: 'Michael',
+  age: 28,
+  weekendAlarm: 'No alarms needed',
+  weekAlarm: 'Alarm set to 7AM',
+  
+  sayHello: function() {
+    return `Hello, my name is ${this.name}`;
+  },
+  
+  sayGoodbye() {
+    return 'Goodbye!';
+  }
+  
+};
+
+let friend = {
+  name:'Andrew'
+}
+
+friend.sayHello = person.sayHello;
+
+console.log(person.sayHello());
+
+person.hobbies = ['Basketball', 'Coaching'];
+person.hobbies = ['Basketball'];
+console.log(person.hobbies);
+
+
+console.log(person['name']);
+console.log(person['age']);
+
+let day = 'Tuesday';
+let alarm;
+
+if (day === 'Saturday' || day === 'Sunday' ) {
+  alarm = 'weekendAlarm';
+} else {
+  alarm = 'weekAlarm';
+}
+
+console.log(person[alarm]);
+
+console.log(friend.sayHello());
+
+---------Getters and Setters--------------
+let person = {
+  _name: 'Lu Xun',
+  _age: 137,
+  
+  set age(ageIn) {
+    if (typeof ageIn === 'number') {
+      this._age = ageIn;
+    }
+    else {
+      console.log('Invalid input');
+      return 'Invalid input';
+    }
+  },
+  
+  get age() {
+    console.log(`${this._name} is ${this._age} years old.`);
+    return this._age;
+  }
+
+};
+
+
+person.age = 'Thirty-nine';
+person.age = 39;
+
+console.log(person.age);
+
+Review: Objects
+Way to go! Let's review what we learned in this lesson:
+
+Objects store key-value pairs and let us represent real-world things in JavaScript.
+Properties in objects are separated by commas. Key-value pairs are always separated by a colon.
+You can add or edit a property within an object with dot notation.
+A method is a function in an object.
+this helps us with scope inside of object methods. this is a dynamic variable that can change depending on the object that is calling the method.
+Getter and setter methods allow you to process data before accessing or setting property values.
